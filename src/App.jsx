@@ -8,7 +8,7 @@ const App = () => {
     const response = await axios.get(
       `https://codeforces.com/api/user.status?handle=${handle.trim()}`
     );
-    console.log(response.data);
+    // console.log(response.data);
   };
   return (
     <>
