@@ -25,6 +25,7 @@ const QDiff = ({ data: initialData }) => {
     for (let key in map) {
       tempData.push([key, map[key]]);
     }
+    //@ts-ignore
     setData(tempData);
   };
   useEffect(() => {

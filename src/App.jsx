@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, TextField, Typography } from "@mui/material";
 import axios from "axios";
 import QDiff from "./QDiff";
+import Tags from "./Tags";
 
 const App = () => {
   const [handle, setHandle] = useState("");
@@ -42,6 +43,7 @@ const App = () => {
       {errMsg && <Typography>{errMsg}</Typography>}
       {loading && <Typography>Loading...</Typography>}
       {data && <QDiff data={data} />}
+      {data && <Tags data={data} />}
     </>
   );
 };
