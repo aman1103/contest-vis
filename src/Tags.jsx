@@ -39,6 +39,7 @@ const Tags = ({ data: initialData }) => {
       }
     });
     // console.log(tempData);
+    // @ts-ignore
     setData(tempData);
   };
   useEffect(() => {

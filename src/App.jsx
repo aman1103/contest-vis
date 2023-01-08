@@ -3,6 +3,7 @@ import { Button, TextField, Typography } from "@mui/material";
 import axios from "axios";
 import QDiff from "./QDiff";
 import Tags from "./Tags";
+import FindDates from "./FindDates";
 
 const App = () => {
   const [handle, setHandle] = useState("");
@@ -12,6 +13,7 @@ const App = () => {
   const handleSubmit = async () => {
     setErrMsg("");
     setLoading(true);
+    // @ts-ignore
     setData(null);
     try {
       const response = await axios.get(
@@ -44,6 +46,7 @@ const App = () => {
       {loading && <Typography>Loading...</Typography>}
       {data && <QDiff data={data} />}
       {data && <Tags data={data} />}
+      {data && <FindDates data={data} />}
     </>
   );
 };
