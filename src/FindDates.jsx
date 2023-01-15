@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import HeatMap from "./Charts/HeatMap";
 
 const FindDates = ({ data: initialData }) => {
@@ -29,22 +29,33 @@ const FindDates = ({ data: initialData }) => {
       } else {
         map[key]++;
       }
-      return sub;
     });
     // console.log(map);
-    let tempData = [];
+    const tempData = [];
     for (let key in map) {
-      tempData.push({ date: key, value: map[key] });
+      const sub = map[key];
+      if (map[key] < 3) {
+        map[key] = 1;
+      } else if (map[key] < 5) {
+        map[key] = 2;
+      } else {
+        map[key] = 3;
+      }
+      tempData.push({ date: new Date(key), count: map[key], nos: sub });
     }
-    console.log(tempData);
+    // console.log(tempData);
     // @ts-ignore
     setData(tempData);
   };
-
   useEffect(() => {
     findSubmissionDates();
   }, []);
-  return <></>;
+  if (data) {
+    console.log(data);
+    return <HeatMap>{data}</HeatMap>;
+  } else {
+    return <></>;
+  }
 };
 
 export default FindDates;

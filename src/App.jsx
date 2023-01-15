@@ -45,8 +45,14 @@ const App = () => {
       {errMsg && <Typography>{errMsg}</Typography>}
       {loading && <Typography>Loading...</Typography>}
       {data && <QDiff data={data} />}
+      <br />
+      <br />
       {data && <Tags data={data} />}
+      <br />
+      <br />
       {data && <FindDates data={data} />}
+      <br />
+      <br />
     </>
   );
 };
