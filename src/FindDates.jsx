@@ -51,7 +51,7 @@ const FindDates = ({ data: initialData }) => {
     findSubmissionDates();
   }, []);
   if (data) {
-    console.log(data);
+    // console.log(data);
     return <HeatMap>{data}</HeatMap>;
   } else {
     return <></>;
